@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{% load static%}
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Nick Walter</title>
+    <title>Lord Bob</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,11 +21,13 @@
 
         <section class="jumbotron text-center">
             <div class="container">
-                <h1 class="jumbotron-heading">Nick Walter</h1>
-                <p class="lead text-muted">I love programming and Django in particular!</p>
+                <h1 class="jumbotron-heading">Lord BoB</h1>
+                <p class="lead text-muted">This is Lord Bob developer portfolio showing his different works on
+                    development</p>
                 <p>
-                    <a href="mailto:nick@zappycode.com" class="btn btn-primary my-2">Email Me</a>
+                    <a href="mailto:123asdas@gmail.com.com" class="btn btn-primary my-2">Email Me</a>
                 </p>
+                <img src="{% static 'profile.jpg'%}" />
             </div>
         </section>
 
@@ -32,16 +35,20 @@
             <div class="container">
 
                 <div class="row">
+                    {%for job in jobs.all%}
                     <div class="col-md-4">
                         <div class="card mb-4 box-shadow">
                             <!-- img -->
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+
+                                <h3>{{job.title}}</h3>
+                                <p class="card-text">
+                                    {{job.description}}</p>
 
                             </div>
                         </div>
                     </div>
+                    {%endfor%}
                 </div>
             </div>
         </div>
