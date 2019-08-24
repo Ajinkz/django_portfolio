@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-{% load static%}
+
 
 <head>
     <meta charset="utf-8">
@@ -13,11 +13,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        a:hover {
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -26,37 +21,17 @@
 
         <section class="jumbotron text-center">
             <div class="container">
-                <img src="{% static 'profile.jpg'%}" class="rounded-circle" />
-                <h1 class="jumbotron-heading">Lord BoB</h1>
-                <p class="lead text-muted">This is Lord Bob developer portfolio showing his different works on
-                    development</p>
+                <h1 class="jumbotron-heading">{{detail.title}}</h1>
+                <img src="{{detail.image.url}}" />
+                <p class="lead text-muted">{{detail.description}}</p>
                 <p>
-                    <a href="mailto:123asdas@gmail.com.com" class="btn btn-primary my-2">Email Me</a>
+                    <a href="{%url 'home'%}" class="btn btn-primary my-2">Home</a>
                 </p>
+
             </div>
         </section>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
 
-                <div class="row">
-                    {%for job in jobs.all%}
-                    <div class="col-md-4">
-                        <div class="card mb-4 box-shadow">
-                            <img src="{{job.image.url}}" height=200 />
-                            <div class="card-body">
-                                <a href="{%url 'view' job.id  %}">
-                                    <h3>{{job.title}}</h3>
-                                </a>
-                                <p class="card-text">
-                                    {{job.description}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {%endfor%}
-                </div>
-            </div>
-        </div>
 
     </main>
 

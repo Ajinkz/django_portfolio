@@ -18,8 +18,11 @@ from django.urls import path
 import Job.views
 from django.conf import settings
 from django.conf.urls.static import static
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Job.views.home),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', Job.views.home, name='home'),
+    path('view/<int:job_id>', Job.views.view, name='view'),
+]
+urlpatterns += static(settings.STATIC_URL,
+                      document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
